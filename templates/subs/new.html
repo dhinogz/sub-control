@@ -1,0 +1,36 @@
+{{template "header" .}}
+<div class="px-6">
+   <h1 class="py-4 text-4xl semibold tracking-light">
+			Create a new sub!
+		
+	    <form action="/signin" method="post">
+	      <div class="hidden">
+	        {{csrfField}}
+	      </div>
+	      <div class="py-2">
+	        <label for="name" class="text-sm font-semibold text-gray-800">
+	          Name
+	        </label>
+	        <input
+	          name="name"
+	          id="name"
+	          type="name"
+	          placeholder="Subscription name"
+	          required
+	          autocomplete="name"
+	          class="w-full px-3 py-2 border border-gray-300 placeholder-gray-500
+	            text-gray-800 rounded"
+	          value="{{.Name}}"
+	          {{if not .Name}}autofocus{{end}}
+	        />
+	      </div>
+	      <div class="py-4">
+	        <button class="w-full py-4 px-2 bg-indigo-600 hover:bg-indigo-700
+	          text-white rounded font-bold text-lg">
+	          Create subcription
+	        </button>
+	      </div>
+			</form>
+   </h1>
+</div>
+{{template "footer" .}}
