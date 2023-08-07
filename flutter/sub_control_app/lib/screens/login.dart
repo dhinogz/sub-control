@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:sub_control_app/screens/signup.dart";
 import "package:sub_control_app/theme.dart";
 
 import "../widgets/login_form.dart";
@@ -37,11 +38,20 @@ class LogInScreen extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    Text(
-                      'Sign Up',
-                      style: textButton.copyWith(
-                          decoration: TextDecoration.underline,
-                          decorationThickness: 1),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => const SignUpScreen(),
+                          transitionDuration: Duration.zero,
+                        ), //pushes to signup screen
+                      ),
+                      child: Text(
+                        'Sign Up',
+                        style: textButton.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationThickness: 1),
+                      ),
                     ),
                   ],
                 ),
