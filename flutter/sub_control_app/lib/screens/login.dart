@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:sub_control_app/screens/password_reset.dart";
 import "package:sub_control_app/screens/signup.dart";
 import "package:sub_control_app/theme.dart";
 
@@ -62,13 +63,22 @@ class LogInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  'Forgot password?',
-                  style: TextStyle(
-                      color: kZambeziColor,
-                      fontSize: 14,
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 1),
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (_, __, ___) => const PasswordResetScreen(),
+                      transitionDuration: Duration.zero,
+                    ), //pushes to password reset screen
+                  ),
+                  child: const Text(
+                    'Forgot password?',
+                    style: TextStyle(
+                        color: kZambeziColor,
+                        fontSize: 14,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 1),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
