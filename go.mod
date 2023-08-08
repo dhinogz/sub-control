@@ -11,7 +11,6 @@ require (
 	github.com/jackc/pgx/v4 v4.18.1
 	github.com/joho/godotenv v1.5.1
 	github.com/pressly/goose/v3 v3.13.1
-	github.com/zmb3/spotify/v2 v2.3.1
 	golang.org/x/crypto v0.11.0
 	golang.org/x/oauth2 v0.10.0
 )
