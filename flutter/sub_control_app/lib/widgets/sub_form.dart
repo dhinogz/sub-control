@@ -3,6 +3,7 @@ import 'package:sub_control_app/services/subscription_data.dart';
 import 'package:sub_control_app/theme.dart';
 
 class AddSubscriptionForm extends StatefulWidget {
+  // callback function to update the state with the new subscription
   final Function(SubscriptionData) onCreateSubscription;
 
   const AddSubscriptionForm({super.key, required this.onCreateSubscription});
@@ -12,12 +13,14 @@ class AddSubscriptionForm extends StatefulWidget {
 }
 
 class _AddSubscriptionFormState extends State<AddSubscriptionForm> {
+  // Create a text controller and use it to retrieve the current value of the TextField.
   final providerController = TextEditingController();
   final priceController = TextEditingController();
   final renewalController = TextEditingController();
   final paymentController = TextEditingController();
   final cycleController = TextEditingController();
 
+  // creates a new subscription object and clears the text fields
   void _createSubscription() {
     final newSub = SubscriptionData(
         provider: providerController.text,
@@ -25,7 +28,10 @@ class _AddSubscriptionFormState extends State<AddSubscriptionForm> {
         renewalDate: renewalController.text,
         paymentMethod: paymentController.text,
         paymentCycle: cycleController.text);
+
+    // calls the callback function to update the state with the new subscription
     widget.onCreateSubscription(newSub);
+
     Navigator.pop(context);
     providerController.clear();
     priceController.clear();

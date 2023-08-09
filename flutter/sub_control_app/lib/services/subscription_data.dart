@@ -13,6 +13,7 @@ class SubscriptionData {
       required this.paymentCycle});
 }
 
+// SAMPLE DATA
 List<SubscriptionData> userSubs = [
   const SubscriptionData(
     provider: 'Netflix',

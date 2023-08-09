@@ -11,6 +11,7 @@ class SubControlScreen extends StatefulWidget {
 }
 
 class _SubControlScreenState extends State<SubControlScreen> {
+  // updates the state with the new subscription
   void _createSubscription(SubscriptionData newSub) {
     setState(() {
       userSubs.add(newSub);
