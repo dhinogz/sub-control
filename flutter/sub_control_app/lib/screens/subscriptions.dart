@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sub_control_app/services/subscription_data.dart';
-
+import '../widgets/sub_form.dart';
 import '../widgets/subscription_card.dart';
 
 class SubControlScreen extends StatefulWidget {
@@ -11,22 +11,11 @@ class SubControlScreen extends StatefulWidget {
 }
 
 class _SubControlScreenState extends State<SubControlScreen> {
-  // THIS WILL BE MY JSON DATA
-  List<SubscriptionData> userSubs = [
-    const SubscriptionData(
-      provider: 'Netflix',
-      price: 9.99,
-      renewalDate: '2023-10-01',
-      paymentMethod: 'Debit Card',
-      paymentCycle: 'Monthly',
-    ),
-    const SubscriptionData(
-        provider: 'Spotfiy',
-        price: 4.99,
-        renewalDate: '2024-10-01',
-        paymentMethod: 'Pay Pal',
-        paymentCycle: 'Monthly'),
-  ];
+  void _createSubscription(SubscriptionData newSub) {
+    setState(() {
+      userSubs.add(newSub);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,27 +45,26 @@ class _SubControlScreenState extends State<SubControlScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ElevatedButton.icon(
-                  onPressed: () => Navigator.pushNamed(context, '/add'),
+                  onPressed: () => {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return FractionallySizedBox(
+                              heightFactor: 0.8,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: AddSubscriptionForm(
+                                    onCreateSubscription: _createSubscription),
+                              ),
+                            );
+                          },
+                        )
+                      },
                   icon: const Icon(Icons.add),
                   label: const Text('Add Subscription'))
             ],
           )
-          // ListView(shrinkWrap: true, children: const [
-          //   SubscriptionCard(
-          //     provider: 'Netflix',
-          //     price: 9.99,
-          //     renewalDate: '2023-10-01',
-          //     paymentMethod: 'Debit Card',
-          //     paymentCycle: 'Monthly',
-          //   ),
-          //   SubscriptionCard(
-          //     provider: 'Spotify',
-          //     price: 4.99,
-          //     renewalDate: '2024-10-01',
-          //     paymentMethod: 'Debit Card',
-          //     paymentCycle: 'Yearly',
-          //   ),
-          // ]),
         ],
       ),
     );

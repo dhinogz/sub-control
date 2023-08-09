@@ -12,3 +12,24 @@ class SubscriptionData {
       required this.paymentMethod,
       required this.paymentCycle});
 }
+
+List<SubscriptionData> userSubs = [
+  const SubscriptionData(
+    provider: 'Netflix',
+    price: 9.99,
+    renewalDate: '2023-10-01',
+    paymentMethod: 'Debit Card',
+    paymentCycle: 'Monthly',
+  ),
+  const SubscriptionData(
+      provider: 'Spotfiy',
+      price: 4.99,
+      renewalDate: '2024-10-01',
+      paymentMethod: 'Pay Pal',
+      paymentCycle: 'Monthly'),
+];
+
+
+// FUNCTION WILL GET SUBSCRIPTION LIST FROM API
+// BACKEND WILL TURN SUBSCRIPTION JSON TO LIST<SUBSCRIPTIONDATA>
+// DISPLAY LIST<SUBSCRIPTIONDATA> IN SUBSCRIPTIONS SCREEN
