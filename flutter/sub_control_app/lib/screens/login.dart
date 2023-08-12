@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:sub_control_app/screens/password_reset.dart";
 import "package:sub_control_app/screens/signup.dart";
+import "package:sub_control_app/screens/subscriptions.dart";
 import "package:sub_control_app/theme.dart";
 
 import "../widgets/login_form.dart";
@@ -83,7 +84,14 @@ class LogInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const PrimaryButton(buttonText: 'Log In'),
+                GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => const SubControlScreen(),
+                          transitionDuration: Duration.zero,
+                        )),
+                    child: const PrimaryButton(buttonText: 'Log In')),
                 const SizedBox(
                   height: 20,
                 ),
